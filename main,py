@@ -1,0 +1,58 @@
+from time import *
+
+import random as r
+
+stringlist = ["my name is hussain","your father name is ahmed baloch","your son is very bad at science and coding"]
+
+print(".....welcome to the speed calculator ....")
+test1=r.choice(stringlist)
+print(test1)
+
+print()
+
+time_1=time()
+para=(input("enter this string :"))
+time_2=time()
+
+def timefunction(time_1,time_2,para):
+
+     diff = time_2 - time_1 
+
+ 
+    #  if diff == 0:  # Prevent ZeroDivisionError
+    #     print("\nError: You pressed Enter too quickly. Try again!")
+    #     return 0
+
+     words = len(para.split())  # Correct word count
+     wordspersec = round(words / diff, 2)  # Calculate and round words per second
+
+     return wordspersec
+
+
+
+# now creating error function 
+
+def errorfunction(test1,para):
+     error=0
+     for i in range(len(test1)):
+          try:
+               if test1[i]!=para[i]:
+                    error = error+1
+
+          except:
+               error = error+1
+
+     return error
+
+
+# Call the functions and print the result
+speed = timefunction(time_1, time_2, para)
+mistake=errorfunction(test1,para)
+
+print(f"\nTyping Speed: {speed} words per second")
+print(f"\n mistake : {mistake} in words ")
+
+
+               
+     
+
